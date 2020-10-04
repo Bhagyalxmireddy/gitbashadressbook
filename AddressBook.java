@@ -12,22 +12,30 @@ public class AddressBook
 		System.out.println("Enter person details: ");
 		System.out.println("\n Enter FirstName : ");
 		String firstName = scan.next();
-		System.out.println("\n Enter lastName : ");
-                String lastName = scan.next();
-		System.out.println("\n Enter Address : ");
-                String address = scan.next();
-		System.out.println("\n Enter city : ");
-                String city = scan.next();
-		System.out.println("\n Enter state : ");
-                String state = scan.next();
-		System.out.println("\n Enter zip : ");
-                long zip = scan.nextLong();
-		System.out.println("\n Enter phone number : ");
-                long phoneNumber = scan.nextLong();
-		ContactPerson person1 = new ContactPerson(firstName, lastName, address, city, state, zip, phoneNumber);
-		persons.add(person1);
-		System.out.println("person details added successfully \n");
-	}
+		if(checkPersonExistence(firstName))
+		{
+			System.out.println("person already exist, Enter different name");
+
+		}
+		else
+		{
+			System.out.println("\n Enter lastName : ");
+                	String lastName = scan.next();
+			System.out.println("\n Enter Address : ");
+                	String address = scan.next();
+			System.out.println("\n Enter city : ");
+                	String city = scan.next();
+			System.out.println("\n Enter state : ");
+                	String state = scan.next();
+			System.out.println("\n Enter zip : ");
+                	long zip = scan.nextLong();
+			System.out.println("\n Enter phone number : ");
+                	long phoneNumber = scan.nextLong();
+			ContactPerson person1 = new ContactPerson(firstName, lastName, address, city, state, zip, phoneNumber);
+			persons.add(person1);
+			System.out.println("person details added successfully \n");
+		}
+	}	
 	public void printPersonDetails()
 	{
         	if (persons.isEmpty())
@@ -116,6 +124,20 @@ public class AddressBook
         		}
     		}
 
+
+		public boolean checkPersonExistence(String name)
+		{
+			int flag = 0;
+			for(ContactPerson person : persons)
+			{
+				if(person.getfirstName().equals(name))
+				{
+					flag = 1;
+					break;
+				}
+			}
+			return flag == 1;
+		}
 
 	public static void main(String[] args)
 	{
