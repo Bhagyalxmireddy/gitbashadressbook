@@ -80,5 +80,8 @@ public class ContactPerson
 	{
         	this.phoneNumber = phoneNumber;
     	}
+	public String toString() {
+        return "Name: " + firstName + " " + lastName + "\n Address: " + address + "\n City: " + city + "\n State: " + state +  " \n pin code " + zip +"\n Phonenumber: " + phoneNumber + " \n ------------------------------ ";
+    }
 }
 
