@@ -169,12 +169,48 @@ public class AddressBook
     
 		}
 
+ 		public void searchPerson()
+		{
+        		int choice;
+        		String city, state;
+        		System.out.println("\n\t 1.Search persons in cities :" +
+                "\n\t 2. Search persons in State ");
+        		choice = scan.nextInt();
+        		if (choice == 1)
+			{
+            			System.out.printf("Enter Cities : ");
+            			city = scan.next();
+            			for (int count = 0; count < persons.size(); count++)
+				{
+                			if (persons.get(count).getCity().equals(city)) 
+					{
+                    				System.out.println(count + ". " + persons.get(count).toString());
+                			}
+            			}
+        		}
+			else if (choice == 2) 
+			{
+           			System.out.printf("Enter State : ");
+            			state = scan.next();
+            			for (int count = 0; count < persons.size(); count++)
+				{
+                			if (persons.get(count).getState().equals(state))	
+					{
+                    				System.out.println(count + ". " + persons.get(count).toString());
+                			}
+            			}
+        		}
+    		}
+
+
+
+
 	public static void main(String[] args)
 	{
 		int choice = 0;
 		AddressBook contact = new AddressBook(); 
 		System.out.println(" WelCome to Address Book Program ");
-		while(choice < 7)
+		while(choice < 9)
 		{
 			System.out.println("    Menu Details    ");
 			System.out.println("\n Enter your choice :: " +
@@ -185,7 +221,8 @@ public class AddressBook
 			"\n 5.Sort by firstName" +
 			"\n 6.Sort By cityname" +
 			"\n 7.sort View By city & state" +
-			"\n 8.Exit" );
+			"\n 8.Search person by city & state" +
+			"\n 9.Exit" );
 				choice = scan.nextInt();
 			switch(choice)
 			{
@@ -210,6 +247,9 @@ public class AddressBook
 				break;
 				case 7:
 					contact.viewByCityState();
+				break;
+				case 8:
+					contact.searchPerson();
 				break;
 			}
 		}
