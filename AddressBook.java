@@ -35,7 +35,7 @@ public class AddressBook
 			persons.add(person1);
 			System.out.println("person details added successfully \n");
 		}
-	}	
+	}
 	public void printPersonDetails()
 	{
         	if (persons.isEmpty())
@@ -138,13 +138,18 @@ public class AddressBook
 			}
 			return flag == 1;
 		}
+		public void sortByName()
+		{
+			persons.sort(ContactPerson.firstNameSorting);
+			persons.forEach(System.out::println);
+		}
 
 	public static void main(String[] args)
 	{
 		int choice = 0;
 		AddressBook contact = new AddressBook(); 
 		System.out.println(" WelCome to Address Book Program ");
-		while(choice < 5)
+		while(choice < 6)
 		{
 			System.out.println("    Menu Details    ");
 			System.out.println("\n Enter your choice :: " +
@@ -152,7 +157,8 @@ public class AddressBook
 			"\n 2.print persons details" +
 			"\n 3.Edit person details "+
 			"\n 4.Delete the person " +
-			"\n 5.Exit" );
+			"\n 5.Sort by firstName" +
+			"\n 6.Exit" );
 				choice = scan.nextInt();
 			switch(choice)
 			{
@@ -168,6 +174,9 @@ public class AddressBook
 				break;
 				case 4:
 					contact.deletePerson();
+				break;
+				case 5:
+					contact.sortByName();
 				break;
 			}
 		}

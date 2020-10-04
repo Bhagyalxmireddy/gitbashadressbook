@@ -1,3 +1,4 @@
+import java.util.Comparator;
 public class ContactPerson
 {
 	private String firstName;
@@ -80,6 +81,11 @@ public class ContactPerson
 	{
         	this.phoneNumber = phoneNumber;
     	}
+	public static Comparator<ContactPerson> firstNameSorting = (contact1,contact2) -> {
+		String firstName = contact1.getfirstName();
+		String firstName2 = contact2.getfirstName();
+		return firstName.compareToIgnoreCase(firstName2);
+	};
 	public String toString() {
         return "-------------------------" + "\n Name: " + firstName + " " + lastName + "\n Address: " + address + "\n City: " + city + "\n State: " + state +  " \n pin code " + zip +"\n Phonenumber: " + phoneNumber + " \n ------------------------------ ";
     }
