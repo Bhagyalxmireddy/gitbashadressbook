@@ -143,13 +143,18 @@ public class AddressBook
 			persons.sort(ContactPerson.firstNameSorting);
 			persons.forEach(System.out::println);
 		}
+		public void sortByCity()
+		{
+			persons.sort(ContactPerson.citySorting);
+			persons.forEach(System.out::println);
+		}
 
 	public static void main(String[] args)
 	{
 		int choice = 0;
 		AddressBook contact = new AddressBook(); 
 		System.out.println(" WelCome to Address Book Program ");
-		while(choice < 6)
+		while(choice < 7)
 		{
 			System.out.println("    Menu Details    ");
 			System.out.println("\n Enter your choice :: " +
@@ -158,7 +163,8 @@ public class AddressBook
 			"\n 3.Edit person details "+
 			"\n 4.Delete the person " +
 			"\n 5.Sort by firstName" +
-			"\n 6.Exit" );
+			"\n 6.Sort By cityname" +
+			"\n 7.Exit" );
 				choice = scan.nextInt();
 			switch(choice)
 			{
@@ -177,6 +183,9 @@ public class AddressBook
 				break;
 				case 5:
 					contact.sortByName();
+				break;
+				case 6:
+					contact.sortByCity();
 				break;
 			}
 		}
