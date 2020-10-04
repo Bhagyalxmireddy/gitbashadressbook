@@ -125,7 +125,7 @@ public class AddressBook
 		while(choice < 5)
 		{
 			System.out.println("    Menu Details    ");
-			System.out.println("\n Enter your choice " +
+			System.out.println("\n Enter your choice :: " +
 			"\n 1.Add persondetails " +
 			"\n 2.print persons details" +
 			"\n 3.Edit person details "+
