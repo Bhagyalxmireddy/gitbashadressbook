@@ -96,33 +96,58 @@ public class AddressBook
         }
     }
 
+		 public void deletePerson()
+		{
+        		if (persons.isEmpty())
+			{
+            			System.out.println("There are no persons to delete in addressbook ");
+        		}
+			else
+			{
+        	        	System.out.println("Enter First name to delete the person ");
+            			String firstName = scan.next();
+            			for (int count = 0; count < persons.size(); count++)
+				{
+                			if (persons.get(count).getfirstName().equals(firstName))
+					{
+                    				persons.remove(persons.get(count));
+                			}
+            			}
+        		}
+    		}
+
+
 	public static void main(String[] args)
 	{
 		int choice = 0;
 		AddressBook contact = new AddressBook(); 
 		System.out.println(" WelCome to Address Book Program ");
-		while(choice < 4)
+		while(choice < 5)
 		{
 			System.out.println("    Menu Details    ");
 			System.out.println("\n Enter your choice " +
 			"\n 1.Add persondetails " +
 			"\n 2.print persons details" +
 			"\n 3.Edit person details "+
-			"\n 4.Exit" );
-		choice = scan.nextInt();
-		switch(choice)
-		{
-			case 1:
-				contact.addPerson();
-			break;
-			case 2:
-				System.out.println("All the person details in the address book :::");
-				contact.printPersonDetails();
-			break;
-			case 3:
-				contact.editPersonDetails();
-			break;
-		}
+			"\n 4.Delete the person " +
+			"\n 5.Exit" );
+				choice = scan.nextInt();
+			switch(choice)
+			{
+				case 1:
+					contact.addPerson();
+				break;
+				case 2:
+					System.out.println("All the person details in the address book :::");
+					contact.printPersonDetails();
+				break;
+				case 3:
+					contact.editPersonDetails();
+				break;
+				case 4:
+					contact.deletePerson();
+				break;
+			}
 		}
 	}
 }
