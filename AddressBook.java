@@ -5,6 +5,8 @@ public class AddressBook
 {
 	static final int ADDRESS = 1, CITY = 2, STATE = 3, ZIP = 4, PHONENUMBER = 5;
 	public static List<ContactPerson> persons = new ArrayList<>();
+	public static ArrayList<String> personCities = new ArrayList<>();
+	public static ArrayList<String> personStates = new ArrayList<>();
 	static Scanner scan = new Scanner(System.in);
 	public void addPerson()
 	{
@@ -149,6 +151,24 @@ public class AddressBook
 			persons.forEach(System.out::println);
 		}
 
+		public void viewByCityState()
+		{
+        		for (ContactPerson person : persons)
+		 	{
+            			personCities.add(person.getCity());
+        		}
+        		for (ContactPerson person : persons)
+			{
+        		 	personStates.add(person.getState());
+        		}
+        		System.out.print("Cities of a persons : \t ");
+        		System.out.println(personCities);
+
+        		System.out.print("States of a persons: \t ");
+        		System.out.println(personStates);
+    
+		}
+
 	public static void main(String[] args)
 	{
 		int choice = 0;
@@ -164,7 +184,8 @@ public class AddressBook
 			"\n 4.Delete the person " +
 			"\n 5.Sort by firstName" +
 			"\n 6.Sort By cityname" +
-			"\n 7.Exit" );
+			"\n 7.sort View By city & state" +
+			"\n 8.Exit" );
 				choice = scan.nextInt();
 			switch(choice)
 			{
@@ -186,6 +207,9 @@ public class AddressBook
 				break;
 				case 6:
 					contact.sortByCity();
+				break;
+				case 7:
+					contact.viewByCityState();
 				break;
 			}
 		}
