@@ -5,6 +5,7 @@ public class AddressBook
 {
 	static final int ADDRESS = 1, CITY = 2, STATE = 3, ZIP = 4, PHONENUMBER = 5;
 	public static List<ContactPerson> persons = new ArrayList<>();
+	public static ArrayList<String> personName = new ArrayList<>();
 	public static ArrayList<String> personCities = new ArrayList<>();
 	public static ArrayList<String> personStates = new ArrayList<>();
 	static Scanner scan = new Scanner(System.in);
@@ -153,6 +154,10 @@ public class AddressBook
 
 		public void viewByCityState()
 		{
+			for (ContactPerson person : persons)
+			{
+				personName.add(person.getfirstName());
+			}
         		for (ContactPerson person : persons)
 		 	{
             			personCities.add(person.getCity());
@@ -161,6 +166,9 @@ public class AddressBook
 			{
         		 	personStates.add(person.getState());
         		}
+			System.out.println("persons name: \t");
+			System.out.println(personName);
+
         		System.out.print("Cities of a persons : \t ");
         		System.out.println(personCities);
 
