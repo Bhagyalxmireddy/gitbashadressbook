@@ -8,7 +8,7 @@ public class ContactPerson
     	private long phoneNumber;
     	private long zip;
 
-	public ContactPerson(String firstName, String lastName, String address, String city, String state, long phoneNumber, long zip )
+	public ContactPerson(String firstName, String lastName, String address, String city, String state, long zip, long phoneNumber )
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
