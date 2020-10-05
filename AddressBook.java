@@ -1,3 +1,4 @@
+
 import java.util.*;
 import java.util.List;
 import java.util.Scanner;
@@ -151,7 +152,7 @@ public class AddressBook
 			persons.forEach(System.out::println);
 		}
 
-		public void viewByCityState()
+		/*public void viewByCityState()
 		{
         		for (ContactPerson person : persons)
 		 	{
@@ -167,7 +168,24 @@ public class AddressBook
         		System.out.print("States of a persons: \t ");
         		System.out.println(personStates);
     
-		}
+		}*/
+public  void viewPersonByCityAndState()
+ {
+	String city;
+	String state;
+        System.out.println("enter the state:");
+        String stateName = scan.next();
+        System.out.println("enter the city:");
+        String cityName = scan.next();
+		for( int count = 0; count < persons.size(); count ++ )
+		{
+			if(persons.get(count).getState().equals(stateName) && persons.get(count).getCity().equals(cityName))
+			{
+				System.out.println(count + "." + persons.get(count).toString());
+			}
+            	}
+        
+    }
 
  		public void searchPerson()
 		{
@@ -246,7 +264,7 @@ public class AddressBook
 					contact.sortByCity();
 				break;
 				case 7:
-					contact.viewByCityState();
+					contact.viewPersonByCityAndState();
 				break;
 				case 8:
 					contact.searchPerson();
